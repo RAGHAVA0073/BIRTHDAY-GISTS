@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Tharun 🎉</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#000;
+    overflow:hidden;
+    text-align:center;
+    color:white;
+}
+
+.container{
+    background:#111;
+    padding:30px 20px;
+    border-radius:20px;
+    width:90%;
+    max-width:350px;
+    box-shadow:0 0 25px rgba(255,255,255,0.2);
+}
+
+h1{
+    font-size:22px;
+    color:#ffffff;
+    margin-bottom:15px;
+}
+
+p{
+    font-size:15px;
+    margin-bottom:20px;
+    color:#bbb;
+}
+
+button{
+    padding:12px 25px;
+    border:none;
+    border-radius:30px;
+    background:white;
+    color:black;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:scale(1.1);
+    background:#ccc;
+}
+
+.hidden{
+    display:none;
+}
+
+.message{
+    margin-top:20px;
+    font-size:18px;
+    color:#fff;
+    animation:fadeIn 1.2s ease forwards;
+}
+
+@keyframes fadeIn{
+    from{opacity:0; transform:translateY(10px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+/* Floating stars */
+.star{
+    position:absolute;
+    width:4px;
+    height:4px;
+    background:white;
+    border-radius:50%;
+    animation:fall 5s linear infinite;
+}
+
+@keyframes fall{
+    from{transform:translateY(-10vh);}
+    to{transform:translateY(110vh);}
+}
+
+@media(max-width:480px){
+    h1{font-size:20px;}
+    p{font-size:14px;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>🖤 Tap for Surprise Tharun 🖤</h1>
+    <p>Your best friend has something special for you!</p>
+    <button onclick="showSurprise()">Open</button>
+
+    <div id="surprise" class="hidden">
+        <div class="message">
+            🎉 Happy Birthday Tharun 🎉 <br><br>
+            Machaa ❤️<br>
+            May this year bring you success, happiness, and crazy memories with your best friend! 🤝🔥<br><br>
+            Stay strong. Stay unstoppable. 🖤
+        </div>
+    </div>
+</div>
+
+<!-- Background Music -->
+<audio id="bgMusic" loop>
+    <!-- Replace the link below with Meiyazhagan mp3 file link -->
+    <source src="meiyazhagan.mp3" type="audio/mpeg">
+</audio>  8763 cvc 
+
+<script>
+function showSurprise(){
+    document.getElementById("surprise").classList.remove("hidden");
+    document.getElementById("bgMusic").play();
+
+    for(let i=0;i<40;i++){
+        let star=document.createElement("div");
+        star.classList.add("star");
+        star.style.left=Math.random()*100+"vw";
+        star.style.animationDuration=(Math.random()*3+2)+"s";
+        document.body.appendChild(star);
+
+        setTimeout(()=>star.remove(),5000);
+    }
+}
+</script>
+
+</body>
+</html>
